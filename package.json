@@ -1,0 +1,54 @@
+{
+  "name": "yh.ui.component",
+  "version": "1.0.0",
+  "description": "本项目基于永辉彩食鲜layout布局UI开发，只提供企业ui使用，其余需求请自行通过git发起请求",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./bin/webpack.dev.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:asuncm_web/yh.ui.component.git"
+  },
+  "keywords": [
+    "ui",
+    "react",
+    "webpack",
+    "javascript",
+    "yh-ui"
+  ],
+  "author": "zhangwenbin <942623159@qq.com>",
+  "license": "OBSD",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "quill": "^1.3.7",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "antd": "^4.16.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0"
+  },
+  "contributors": [
+    {
+      "name": "zhangwenbin",
+      "email": "942623159@qq.com"
+    },
+    {
+      "name": "lina",
+      "email": "lina2@yonghui.cn"
+    }
+  ]
+}
