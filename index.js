@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { render } from 'react-dom';
-import Table from '@es/table';
+import RouterComponent from './src/router';
 
 const App = () => {
     useEffect(() => {
-        console.log(Table)
     }, [])
     return <div>
-        <Table />
+        <RouterComponent />
     </div>
 }
 render(<App />, document.getElementById('YHUI'));

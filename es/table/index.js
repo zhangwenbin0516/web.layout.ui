@@ -4,6 +4,7 @@
 import React from 'react';
 
 const Table = (props) => {
+    console.log(props)
     return React.createElement('div');
 }
 Table.defaultprops = {

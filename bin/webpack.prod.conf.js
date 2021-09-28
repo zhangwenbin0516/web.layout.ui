@@ -4,12 +4,8 @@ const WebpackConfig = require('./webpack.base');
 module.exports = merge(WebpackConfig, {
     mode: 'development',
     entry: {
-        app: path.resolve(__dirname, '../index.js')
+        app: path.resolve(__dirname, '../index.js'),
+        common: ['react', 'react-dom', 'react-router-dom']
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        host: 'localhost',
-        port: '3590',
-        open: true
-    }
+    devtool: 'source-map',
 })
