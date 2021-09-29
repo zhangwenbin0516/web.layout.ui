@@ -2,11 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const routes = {}
 module.exports = {
   output: {
     filename: 'js/[name].[contenthash:7].js',
     path: path.resolve(__dirname, '../dist'),
-    chunkFilename: 'js/[id].js',
+    chunkFilename: 'js/[id].[contenthash:7].js',
     publicPath: '/'
   },
   resolve: {
