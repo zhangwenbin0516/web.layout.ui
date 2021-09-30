@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
-const routes = {}
 module.exports = {
   output: {
     filename: 'js/[name].[contenthash:7].js',
@@ -11,7 +10,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.css', '.json', 'index.js'],
+    extensions: ['.js', '.css', '.json', 'index.js', '.less', '.scss'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
       '@es': path.resolve(__dirname, '../es'),
@@ -25,10 +24,6 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-              plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import']
-            }
           }
         ],
         exclude: /node_modules/
@@ -48,7 +43,14 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../static/index.html'),
-      filename: 'index.html'
+      filename: path.resolve(__dirname, '../dist/index.html'),
+      inject: true,
+      hash: true,
+      minify: {
+        removeComments: true, //去注释
+        collapseWhitespace: true, // 压缩空格
+      },
+      favicon: path.resolve(__dirname, '../static/icoLogo.png')
     })
   ]
 }

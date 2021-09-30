@@ -1,6 +1,16 @@
 const path = require('path');
-const { merge } = require('webpack-merge');
+const merge = require('webpack-merge');
 const WebpackConfig = require('./webpack.base');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const cssOptions = {
+    url: true,
+    esModule: true,
+    sourceMap: true,
+    modules: {
+        mode: 'local',
+        localIdentName: "[name]_[local]_[hash:base64:9]"
+    }
+};
 module.exports = merge(WebpackConfig, {
     mode: 'development',
     entry: {
@@ -11,59 +21,34 @@ module.exports = merge(WebpackConfig, {
     module: {
         rules: [
             {
-                test: /.css$/,
+                test: /\.css$/,
                 include: [/src/, /es/, /lib/],
                 use: [
                     {
                         loader: 'style-loader'
                     },
                     {
-                        loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            esModule: true,
-                            sourceMap: true,
-                            modules: {
-                                mode: 'local',
-                                auto: true,
-                                nameExport: true,
-                                localIdentContenxt: path.resolve(__dirname, '..'),
-                                localIdentName: "[name]_[local]_[hash:base64:9]"
-                            }
-                        }
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader'
                     }
                 ],
                 exclude: /node_modules/
             },
             {
-                test: /.(c|le)ss$/,
+                test: /\.(c|le)ss$/,
                 include: [/src/, /es/, /lib/],
                 use: [
                     {
                         loader: 'style-loader'
                     },
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            
-                        }
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            esModule: true,
-                            sourceMap: true,
-                            modules: {
-                                mode: 'local',
-                                auto: true,
-                                nameExport: true,
-                                localIdentContenxt: path.resolve(__dirname, '..'),
-                                localIdentName: "[name]_[local]_[hash:base64:9]"
-                            }
-                        }
+                        options: cssOptions
                     },
                     {
                         loader: 'less-loader',
@@ -79,40 +64,25 @@ module.exports = merge(WebpackConfig, {
                 exclude: /node_modules/
             },
             {
-                test: /.(sc|sa|c)ss$/,
+                test: /\.(sc|sa|c)ss$/,
                 include: [/src/, /es/, /lib/],
                 use: [
                     {
                         loader: 'style-loader'
                     },
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            
-                        }
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            esModule: true,
-                            sourceMap: true,
-                            modules: {
-                                mode: 'local',
-                                auto: true,
-                                nameExport: true,
-                                localIdentContenxt: path.resolve(__dirname, '..'),
-                                localIdentName: "[name]_[local]_[hash:base64:9]"
-                            }
-                        }
+                        options: cssOptions
                     },
                     {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
                             sassOptions: {
-
+                                fiber: require('fibers')
                             },
                             implementation: require('sass')
                         }
@@ -121,5 +91,11 @@ module.exports = merge(WebpackConfig, {
                 exclude: /node_modules/
             },
         ]
-    }
+    },
+    plugins:[
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:9].css',
+            chunkFilename: 'css/[id].[chunkhash:9].css'
+        })
+    ]
 })

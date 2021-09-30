@@ -1,7 +1,15 @@
 const path = require('path');
-const { merge } = require('webpack-merge');
+const merge = require('webpack-merge');
 const WebpackConfig = require('./webpack.base');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const cssOption = {
+    url: true,
+    esModule: true,
+    sourceMap: true,
+    modules: {
+        mode: 'local',
+        localIdentName: "[name]_[local]"
+    }
+};
 module.exports = merge(WebpackConfig, {
     mode: 'development',
     entry: {
@@ -17,126 +25,46 @@ module.exports = merge(WebpackConfig, {
     module: {
         rules: [
             {
-                test: /.css$/,
-                include: [/src/, /es/, /lib/],
+                test: /\.css$/,
                 use: [
                     {
                         loader: 'style-loader'
                     },
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-
-                        }
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            esModule: true,
-                            sourceMap: true,
-                            modules: {
-                                mode: 'local',
-                                auto: true,
-                                nameExport: true,
-                                localIdentContenxt: path.resolve(__dirname, '..'),
-                                localIdentName: "[path]_[name]_[local]"
-                            }
-                        }
+                        loader: 'css-loader'
                     }
-                ],
-                exclude: /node_modules/
+                ]
             },
             {
-                test: /.(c|le)ss$/,
-                include: [/src/, /es/, /lib/],
+                test: /\.less$/,
                 use: [
                     {
                         loader: 'style-loader'
                     },
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            
-                        }
-                    },
-                    {
                         loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            esModule: true,
-                            sourceMap: true,
-                            modules: {
-                                mode: 'local',
-                                auto: true,
-                                nameExport: true,
-                                localIdentContenxt: path.resolve(__dirname, '..'),
-                                localIdentName: "[path]_[name]_[local]"
-                            }
-                        }
+                        options: cssOption
                     },
                     {
-                        loader: 'less-loader',
-                        options: {
-                            sourceMap: true,
-                            lessOptions: {
-                                relativeUrls: true
-                            },
-                            implementation: require('less')
-                        }
+                        loader: 'less-loader'
                     }
-                ],
-                exclude: /node_modules/
+                ]
             },
             {
-                test: /.(sc|sa|c)ss$/,
-                include: [/src/, /es/, /lib/],
+                test: /\.s[ac]ss$/,
                 use: [
                     {
                         loader: 'style-loader'
                     },
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            
-                        }
-                    },
-                    {
                         loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            esModule: true,
-                            sourceMap: true,
-                            modules: {
-                                mode: 'local',
-                                auto: true,
-                                nameExport: true,
-                                localIdentContenxt: path.resolve(__dirname, '..'),
-                                localIdentName: "[path]_[name]_[local]"
-                            }
-                        }
+                        options: cssOption
                     },
                     {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                            sassOptions: {
-
-                            },
-                            implementation: require('sass')
-                        }
+                        loader: 'sass-loader'
                     }
-                ],
-                exclude: /node_modules/
-            },
+                ]
+            }
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-
-        })
-    ]
 })
