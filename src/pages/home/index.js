@@ -4,7 +4,7 @@
  import React from 'react';
 
  const RootComponent = () => {
-   return <React.Fragment key={ 'page' }>sasda+++++++++sd</React.Fragment>
+   return <div key={ 'page' }>sasda+++++++++sd</div>
  }
  
  export default RootComponent;
