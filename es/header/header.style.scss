@@ -1,1 +1,26 @@
 @import "../common/styles/page.style.scss";
+.header {
+    height: 60px;
+    display: grid;
+    grid-template-columns: 240px auto 300px;
+    align-items: center;
+    justify-content: stretch;
+    background-color: $white;
+    &_logo {
+        height: 100%;
+        padding-left: 25px;
+        @include fx(rl, cc);
+        @include font((size: 28px, weight: 600));
+        &_img {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+        }
+    }
+    &_menu {
+        height: 100%;
+    }
+    &_userinfo {
+        height: 100%;
+    }
+}

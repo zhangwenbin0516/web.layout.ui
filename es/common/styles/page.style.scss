@@ -1,4 +1,26 @@
 @charset "utf-8";
+@import "color.scss";
+$flex: (
+  rl: (name: justify-content, value: flex-start),
+  rc: (name: justify-content, value: center),
+  rr: (name: justify-content, value: flex-end),
+  ct: (name: align-items, value: flex-start),
+  cc: (name: align-items, value: center),
+  cb: (name: align-items, value: flex-end)
+);
+@mixin fx($list...) {
+  display: flex;
+  display: -webkit-flex;
+  @each $name in $list {
+    $key: map-get($flex, $name);
+    #{ map-get($key, name) }: map-get($key, value);
+  }
+}
+@mixin font($list) {
+  @each $key, $val in $list {
+    font-#{ $key }: $val;
+  }
+}
 .page {
   display: grid;
 }

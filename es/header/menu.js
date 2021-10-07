@@ -1,17 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import style from './header.style.scss';
 const Menu = (props) => {
-    return <div>menu</div>
+    useEffect(() => {
+        console.log(props)
+    }, [props])
+    return React.createElement('div', {
+        className: style.header_menu
+    }, [])
 }
 
 export default Menu;
-
-
-
-
-
-
-
-
-
-
-
