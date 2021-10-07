@@ -5,29 +5,49 @@
  * @content 内容信息
  */
 import _typeof from "@babel/runtime/helpers/esm/typeof";
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
+import Header from "../header";
+import Logo from "../header/logo";
+import Asider from "./asider";
+import Menu from "../header/menu";
+import UserInfo from "../header/userInfo";
+import style from "./layout.style.scss";
 
 const Layout = (props) => {
-  const [component, setComponent] = useState(props.children);
-  useEffect(() => {
-    console.log(props)
-    if (props.children.constructor === Array) {
-      setComponent(<div>
-        {
-          props.children.map((item) => {
-            return item;
-          })
-        }
-      </div>)
-    } else {
-      setComponent(props.children)
+  const [component, setComponent] = useState([]);
+  useMemo(() => {
+    switch(props.header) {
+      case 'top':
+        setComponent([
+          <Header 
+          className={ style.header_top }
+          logoRender={<Logo key='logo' { ...props.logo } />}
+          menuRender={<Menu key='menu' menus={props.menus} menuRender={ props.menuRender } />}
+          userRender={<UserInfo key='userinfo' userinfo={{ ...props.users }} />}
+          key='header' />
+        ].concat(props.children));
+        break;
+      default:
+        let cls = props.header || 'left';
+        setComponent([
+          <Asider 
+          className={ style['asider_' + cls] }
+          logoRender={<Logo key='logo' { ...props.logo } />}
+          menuRender={<Menu key='menu' menus={props.menus} menuRender={ props.menuRender } />}
+          key='asider' />,
+          <Header
+          className={ style['header_' + cls] }
+          userRender={<UserInfo key='userinfo' userinfo={{ ...props.users }} />}
+          key='header' />
+        ].concat(props.children));
+        break;
     }
-  }, [props.children])
-  if (props.className) {
-    return React.createElement('div', { className: props.className }, props.children)
+  }, [props])
+  if (props.header === 'top' || props.className) {
+    return React.createElement('div', { className: props.className }, component)
   } else {
-    return <React.Fragment>
-      {props.children}
+    return <React.Fragment key="layout">
+      { component }
     </React.Fragment>
   }
 }

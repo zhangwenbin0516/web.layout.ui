@@ -7,7 +7,7 @@ import HeaderComponent from '@/components/header/top';
 import MenuComponent from '@/components/menus/asider';
 import RouterComponent from '@/router';
 
-import style from './page.style.scss';
+import style from '@es/common/styles/page.style.scss';
 
 const RootComponent = (props) => {
   let [count, setCount] = useState(0)
@@ -22,6 +22,10 @@ const RootComponent = (props) => {
       header="top"
       headerRender={<HeaderComponent />} 
       className={ style.page }
+      logo={{
+        title: 'YHUI',
+        url: require('@/assets/logo.png')
+      }}
       menus={[]}
       menuRender={<MenuComponent />}
       style={{}}>

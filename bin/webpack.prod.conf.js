@@ -18,17 +18,30 @@ module.exports = merge(WebpackConfig, {
         common: ['react', 'react-dom', 'react-router-dom']
     },
     devtool: 'source-map',
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true
+                }
+            }
+        }
+    },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 include: [/src/, /es/, /lib/],
-                use: [
-                    {
+                use: [{
                         loader: 'style-loader'
                     },
                     {
-                        loader: MiniCssExtractPlugin.loader
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false
+                        }
                     },
                     {
                         loader: 'css-loader'
@@ -37,10 +50,9 @@ module.exports = merge(WebpackConfig, {
                 exclude: /node_modules/
             },
             {
-                test: /\.(c|le)ss$/,
+                test: /\.less$/,
                 include: [/src/, /es/, /lib/],
-                use: [
-                    {
+                use: [{
                         loader: 'style-loader'
                     },
                     {
@@ -64,10 +76,9 @@ module.exports = merge(WebpackConfig, {
                 exclude: /node_modules/
             },
             {
-                test: /\.(sc|sa|c)ss$/,
+                test: /\.s[ac]ss$/,
                 include: [/src/, /es/, /lib/],
-                use: [
-                    {
+                use: [{
                         loader: 'style-loader'
                     },
                     {
@@ -92,7 +103,7 @@ module.exports = merge(WebpackConfig, {
             },
         ]
     },
-    plugins:[
+    plugins: [
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:9].css',
             chunkFilename: 'css/[id].[chunkhash:9].css'
