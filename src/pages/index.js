@@ -1,36 +1,29 @@
 /**
  * @
  */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Layout } from '@es';
 import HeaderComponent from '@/components/header/top';
-import MenuComponent from '@/components/menus/asider';
+// import MenuComponent from '@/components/menus/asider';
 import RouterComponent from '@/router';
-
-import style from '@es/common/styles/page.style.scss';
+import menus from './menu.config';
+import style from './page.style.scss';
 
 const RootComponent = (props) => {
-  let [count, setCount] = useState(0)
   useEffect(() => {
-    console.log(props)
   }, [props])
-  function onTest() {
-    setCount(count++)
-  }
   return <div className={ style.page }>
     <Layout 
-      header="top"
+      header="left"
       headerRender={<HeaderComponent />} 
-      className={ style.page }
+      className={ style.page_main }
       logo={{
         title: 'YHUI',
         url: require('@/assets/logo.png')
       }}
-      menus={[]}
-      menuRender={<MenuComponent />}
+      menus={menus}
+      // menuRender={<MenuComponent key="menu" menus={menus} />}
       style={{}}>
-        <div onClick={ () => onTest() }>sadasdsad</div>
-       <div> {count}</div>
       <RouterComponent routes={props.routes} />
     </Layout>
   </div>

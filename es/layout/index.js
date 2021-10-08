@@ -9,7 +9,8 @@ import React, { useState, useMemo } from "react";
 import Header from "../header";
 import Logo from "../header/logo";
 import Asider from "./asider";
-import Menu from "../header/menu";
+import HeaderMenu from "../header/menu";
+import AsiderMenu from "./menu";
 import UserInfo from "../header/userInfo";
 import style from "./layout.style.scss";
 
@@ -22,7 +23,7 @@ const Layout = (props) => {
           <Header 
           className={ style.header_top }
           logoRender={<Logo key='logo' { ...props.logo } />}
-          menuRender={<Menu key='menu' menus={props.menus} menuRender={ props.menuRender } />}
+          menuRender={<HeaderMenu key='menu' menus={props.menus} menuRender={ props.menuRender } />}
           userRender={<UserInfo key='userinfo' userinfo={{ ...props.users }} />}
           key='header' />
         ].concat(props.children));
@@ -32,8 +33,8 @@ const Layout = (props) => {
         setComponent([
           <Asider 
           className={ style['asider_' + cls] }
-          logoRender={<Logo key='logo' { ...props.logo } />}
-          menuRender={<Menu key='menu' menus={props.menus} menuRender={ props.menuRender } />}
+          logoRender={<Logo key='logo' className={ style.asider_logo } { ...props.logo } />}
+          menuRender={<AsiderMenu key='menu' className={ style.asider_menu } menus={props.menus} menuRender={ props.menuRender } />}
           key='asider' />,
           <Header
           className={ style['header_' + cls] }

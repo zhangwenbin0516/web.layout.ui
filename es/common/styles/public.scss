@@ -16,11 +16,30 @@ $flex: (
     #{ map-get($key, name) }: map-get($key, value);
   }
 }
-@mixin font($list) {
+@mixin font($list: ()) {
   @each $key, $val in $list {
     font-#{ $key }: $val;
   }
 }
-.page {
-  display: grid;
+@mixin absolute($list) {
+  position: absolute;
+  @each $key, $val in $list {
+    #{ $key }: $val;
+  }
+}
+@mixin overflow($list: ()) {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  @each $key, $val in $list {
+    overflow-#{ $key }: $val;
+  }
+}
+@mixin padding($list: ()) {
+  @each $key, $val in $list {
+    padding-#{ $key }: $val;
+  }
+}
+@mixin height($val) {
+  height: $val;
+  line-height: $val;
 }

@@ -5,7 +5,7 @@
 * @RouterContext 路由组件，实现路由渲染
 */
 import React, { Suspense, useState, useEffect } from 'react';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
 
 /**
  * @RouterContext 渲染路由模板, 模板兼容三种模式的路由渲染
@@ -15,8 +15,21 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
  */
 const RouterContext = (props) => {
     const [routes, setRoutes] = useState([]);
+    const [redirect, setRedirect] = useState(null)
     const match = useRouteMatch();
     useEffect(() => {
+        if (props.routes && props.routes.length > 0) {
+            let pathname = match.path;
+            let item = props.routes[0];
+            if (/\/$/.test(pathname) && /^\//.test(item.path)) {
+                item.path = item.path.slice(1, item.path.length);
+            } else if (!/\/$/.test(pathname) && !/^\//.test(item.path)) {
+                item.path = `/${item.path}`;
+            }
+            setRedirect(<Redirect to={`${pathname}${item.path}`} />) 
+        } else {
+            setRedirect(null) 
+        }
         setRoutes(props.routes)
     }, [props.routes])
     return <Switch>
@@ -57,6 +70,7 @@ const RouterContext = (props) => {
                 }} />
             })
         }
+        { redirect }
     </Switch>
 }
 export default RouterContext;

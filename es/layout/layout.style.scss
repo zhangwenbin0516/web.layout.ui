@@ -1,1 +1,48 @@
 @import "../header/header.style.scss";
+.asider {
+  &_left {
+    width: 240px;
+    @include absolute((left: 0, top: 0, bottom: 0));
+    background-color: $white;
+    display: grid;
+    grid-template-rows: 60px auto;
+  }
+  &_logo {
+    position: relative;
+    @extend .header_logo;
+    &::before {
+      content: '';
+      @include absolute((left: 0, bottom: 0, right: 0));
+      background-color: $bdcdcdc;
+      height: 1px;
+      transform: scaleY(0.5);
+    }
+  }
+  &_menu {
+    padding: 15px 0px;
+    @include overflow((y: auto));
+    &_a {
+      display: block;
+      cursor: pointer;
+      @include height(36px);
+      color: $b222;
+      margin-top: 2px;
+      font-size: 13px;
+      &:hover {
+        @extend .asider_menu_active;
+      }
+      &ctive {
+        color: $white;
+        background-color: $b1890ff;
+      }
+    }
+    &_head {
+      padding-top: 5px;
+    }
+    &_title {
+      @include height(36px);
+      color: $b666;
+      font-size: 14px;
+    }
+  }
+}

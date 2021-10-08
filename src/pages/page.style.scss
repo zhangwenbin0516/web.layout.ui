@@ -1,0 +1,5 @@
+@import '~@es/common/styles/public.scss';
+.page {
+  display: grid;
+  @include padding((top: 40px, left: 242px));
+}
