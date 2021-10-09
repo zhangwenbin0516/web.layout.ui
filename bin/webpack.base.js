@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
+  target: 'web',
   output: {
     filename: 'js/[name].[contenthash:7].js',
     path: path.resolve(__dirname, '../dist'),
@@ -10,7 +11,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.css', '.json', 'index.js', '.less', '.scss'],
+    extensions: ['.js', '.css', '.json', 'index.js', '.less', '.scss', '.md'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
       '@es': path.resolve(__dirname, '../es'),
@@ -46,6 +47,14 @@ module.exports = {
           {
             loader: 'html-loader'
           }
+        ]
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "raw-loader",
+          },
         ]
       }
     ]

@@ -2,10 +2,8 @@
 .asider {
   &_left {
     width: 240px;
-    @include absolute((left: 0, top: 0, bottom: 0));
+    @include absolute((left: 0, top: 60px, bottom: 0));
     background-color: $white;
-    display: grid;
-    grid-template-rows: 60px auto;
   }
   &_logo {
     position: relative;
@@ -14,6 +12,7 @@
       content: '';
       @include absolute((left: 0, bottom: 0, right: 0));
       background-color: $bdcdcdc;
+      box-shadow: 0px -1px 5px $adcdcdc;
       height: 1px;
       transform: scaleY(0.5);
     }
@@ -22,27 +21,44 @@
     padding: 15px 0px;
     @include overflow((y: auto));
     &_a {
+      position: relative;
       display: block;
       cursor: pointer;
-      @include height(36px);
-      color: $b222;
-      margin-top: 2px;
+      @include height(40px);
+      color: $b666;
+      margin-top: 10px;
       font-size: 13px;
       &:hover {
         @extend .asider_menu_active;
       }
       &ctive {
-        color: $white;
-        background-color: $b1890ff;
+        color: $b1890ff;
+        background-color: $bf2f6fd;
+        &::before {
+          content: '';
+          width: 2px;
+          background-color: $b1890ff;
+          @include absolute((top: 0, right: 0, bottom: 0));
+        }
       }
     }
     &_head {
       padding-top: 5px;
     }
     &_title {
-      @include height(36px);
-      color: $b666;
-      font-size: 14px;
+      @include height(50px);
+      color: $b999;
+      font-size: 12px;
+      padding-top: 5px;
+    }
+    &_children {
+      position: relative;
+      padding-top: 10px;
+      &::before {
+        @extend .asider_logo;
+        @include absolute((left: 10px, right: 10px, bottom: auto));
+        background: $adcdcdc;
+      }
     }
   }
 }

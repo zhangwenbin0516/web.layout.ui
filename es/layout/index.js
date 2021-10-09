@@ -33,11 +33,11 @@ const Layout = (props) => {
         setComponent([
           <Asider 
           className={ style['asider_' + cls] }
-          logoRender={<Logo key='logo' className={ style.asider_logo } { ...props.logo } />}
           menuRender={<AsiderMenu key='menu' className={ style.asider_menu } menus={props.menus} menuRender={ props.menuRender } />}
           key='asider' />,
           <Header
           className={ style['header_' + cls] }
+          logoRender={<Logo key='logo' className={ style.asider_logo } { ...props.logo } />}
           userRender={<UserInfo key='userinfo' userinfo={{ ...props.users }} />}
           key='header' />
         ].concat(props.children));

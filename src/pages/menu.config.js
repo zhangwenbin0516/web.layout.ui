@@ -5,7 +5,7 @@ export default [
       {
         title: 'Layout 页面布局',
         path: '/layout'
-      }
+      },
     ]
   },
   {

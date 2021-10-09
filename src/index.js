@@ -5,6 +5,7 @@
  * @BrowserRouter history路由模式
  * @RouterComponent 路由渲染模板
  */
+
 import React, { useEffect } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
