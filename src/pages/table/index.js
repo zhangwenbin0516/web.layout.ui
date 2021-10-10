@@ -9,7 +9,7 @@ import readme from '@/styles/markdown.style.scss';
 const TableComponent = (props) => {
   useEffect(() => {
   }, [])
-  return <div>
+  return <div className={ style.main }>
     <ReactMarkddown children={ TableMd } className={ readme.markdown } />
     <Table 
     className={ style.table }

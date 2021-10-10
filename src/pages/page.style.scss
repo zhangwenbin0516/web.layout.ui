@@ -3,3 +3,8 @@
   display: grid;
   @include padding((top: 60px, left: 242px));
 }
+.main {
+  position: relative;
+  @include overflow((y: auto));
+  background-color: $white;
+}
