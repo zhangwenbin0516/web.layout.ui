@@ -14,9 +14,9 @@ const Thead = () => {
             let cols = {};
             (columns || []).filter(item => {
                 if (item.children && item.children[i]) {
-                    cols[item.key] = item.children[i];
+                    cols[item.key || 'editor'] = item.children[i];
                 } else {
-                    cols[item.key] = item.title;
+                    cols[item.key || 'editor'] = item.title;
                 }
             })
             rows.push(cols);
@@ -29,7 +29,9 @@ const Thead = () => {
     if (header === false) {
         return null;
     } else {
-        return React.createElement('thead', {}, [<ColumnGroup key="group" />]);
+        return React.createElement('thead', {}, [((headers || {}).lists || []).map((items, index) => {
+            return <ColumnGroup key={ index } type="thead" columns={ items } />
+        })]);
     }
 }
 

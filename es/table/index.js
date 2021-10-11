@@ -5,7 +5,7 @@ import React from 'react';
 import TableContent from './table';
 import Column from './column';
 import ColumnGroup from './columnGroup';
-
+import Pagination from './pagination';
 import { TableComponent } from './hooks';
 
 
@@ -14,7 +14,8 @@ const Table = (props) => {
         key: 'hooks',
         values: { ...props },
     }, [
-        <TableContent key="table" />
+        <TableContent key="table" />,
+        <Pagination key="pagination" />
     ]);
 }
 Table.Column = Column;

@@ -14,17 +14,16 @@ class Table {
         this.head = this.head.bind(this);
         this.init = this.init.bind(this);
     }
-    head() {
-        console.log(this)
+    head(state, data) {
+        this.state = state;
+        this.state.headers = { ...this.state.headers, lists: data };
     }
     init(state = initState, action) {
         if (action.type && this[action.type]) {
-            this.state = state;
-            this.data = action;
             this[action.type](state, action.data);
-            return this.state;
+            return { ...this.state };
         } else {
-            return state;
+            return { ...state };
         }
     }
 }
