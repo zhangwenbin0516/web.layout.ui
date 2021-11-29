@@ -7,7 +7,7 @@ import HeaderComponent from '@/components/header/top';
 // import MenuComponent from '@/components/menus/asider';
 import RouterComponent from '@/router';
 import menus from './menu.config';
-import style from './page.style.scss';
+import style from '@/styles/page.style.scss';
 
 const RootComponent = (props) => {
   useEffect(() => {

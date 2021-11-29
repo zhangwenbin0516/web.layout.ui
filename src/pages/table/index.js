@@ -11,10 +11,10 @@ const TableComponent = (props) => {
   }, [])
   return <div className={ style.main }>
     <ReactMarkddown children={ TableMd } className={ readme.markdown } />
-    <Table 
+    {/* <Table 
     className={ style.table }
     columns={columns}
-    tabledata={tabledata}></Table>
+    tabledata={tabledata}></Table> */}
   </div>
 }
 
