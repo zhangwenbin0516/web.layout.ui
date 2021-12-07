@@ -1,4 +1,4 @@
-@import '~@es/common/styles/public.scss';
+@import './common.style.scss';
 .page {
   display: grid;
   @include padding((top: 60px, left: 242px));

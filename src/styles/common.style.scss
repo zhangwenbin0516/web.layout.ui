@@ -1,4 +1,17 @@
 @charset "utf-8";
+$white: #fff;
+@mixin padding($args: ()) {
+  @each $key, $val in $args {
+    #{ $key }: $val;
+  }
+}
+@mixin overflow($args: ()) {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  @each $key, $val in $args {
+    #{ $key }: $val;
+  }
+}
 .root {
   height: 100%;
   display: grid;

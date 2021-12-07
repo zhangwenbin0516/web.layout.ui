@@ -46,7 +46,15 @@ const options: webpack.Configuration = merge(config, {
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader' }
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer')]
+              }
+            }
+          }
         ]
       },
       {
@@ -54,6 +62,14 @@ const options: webpack.Configuration = merge(config, {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: cssOption },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer')]
+              }
+            }
+          },
           { loader: 'less-loader' }
         ]
       },
@@ -62,6 +78,14 @@ const options: webpack.Configuration = merge(config, {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: cssOption },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer')]
+              }
+            }
+          },
           { loader: 'sass-loader' }
         ]
       }

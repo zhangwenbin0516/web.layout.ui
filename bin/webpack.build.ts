@@ -61,7 +61,15 @@ const options: webpack.Configuration = merge(config, {
         use: [
           { loader: 'style-loader' },
           { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
-          { loader: 'css-loader' }
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer'), require('cssnano')]
+              }
+            }
+          }
         ],
         exclude: path.resolve(__dirname, '../node_modules')
       },
@@ -72,6 +80,14 @@ const options: webpack.Configuration = merge(config, {
           { loader: 'style-loader' },
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options: cssOption },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer'), require('cssnano')]
+              }
+            }
+          },
           { 
             loader: 'less-loader',
             options: {
@@ -92,6 +108,14 @@ const options: webpack.Configuration = merge(config, {
           { loader: 'style-loader' },
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options: cssOption },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer'), require('cssnano')]
+              }
+            }
+          },
           {
             loader: 'sass-loader',
             options: {

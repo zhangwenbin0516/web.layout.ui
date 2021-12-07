@@ -13,13 +13,16 @@ import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
  * @component 单一模板
  * @components 多模板
  */
-const RouterContext = (props) => {
-    const [routes, setRoutes] = useState([]);
-    const [redirect, setRedirect] = useState(null)
+interface Props {
+    routes: any
+}
+const RouterContext = (props: Props) => {
+    const [routes, setRoutes]: any = useState([]);
+    const [redirect, setRedirect]: any = useState(null)
     const match = useRouteMatch();
     useEffect(() => {
         if (props.routes && props.routes.length > 0) {
-            let pathname = match.path;
+            let pathname: string = match.path;
             let item = props.routes[0];
             if (/\/$/.test(pathname) && /^\//.test(item.path)) {
                 item.path = item.path.slice(1, item.path.length);
@@ -34,7 +37,7 @@ const RouterContext = (props) => {
     }, [props.routes])
     return <Switch>
         {
-            routes.map((item, index) => {
+            routes.map((item: any, index: number) => {
                 let pathname = match.path;
                 if (/\/$/.test(pathname) && /^\//.test(item.path)) {
                     item.path = item.path.slice(1, item.path.length);
@@ -47,7 +50,7 @@ const RouterContext = (props) => {
                         return <Suspense fallback={'loading...'}>
                             {
                                 Object.values(item.components).map((key, val) => {
-                                    let KeyComponent = key;
+                                    let KeyComponent: any = key;
                                     return <KeyComponent key={val} routes={ item.children || [] } />
                                 })
                             }
@@ -57,7 +60,7 @@ const RouterContext = (props) => {
                         return <Suspense fallback={'loading...'}>
                             {
                                 Object.values(item.components).map((key, val) => {
-                                    let KeyComponent = key;
+                                    let KeyComponent: any = key;
                                     return <KeyComponent key={val} routes={ item.children || [] } />
                                 })
                             }

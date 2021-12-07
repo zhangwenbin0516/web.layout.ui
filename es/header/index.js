@@ -2,7 +2,7 @@
  * 
  */
  import React, { useState, useEffect } from 'react';
- import style from './header.style.scss';
+//  import style from './header.style.scss';
 
  const Header = (props) => {
    const [state, setState] = useState({})

@@ -26,7 +26,16 @@ const config: webpack.Configuration = {
       {
         test: /\.(ts|tsx)$/,
         include: path.resolve(__dirname, '../src'),
-        loader: 'ts-loader'
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        },
+        exclude: path.resolve(__dirname, '../node_modules')
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
       {
         test: /\.jsx?$/,
@@ -76,7 +85,7 @@ const config: webpack.Configuration = {
         removeComments: true, //去注释
         collapseWhitespace: true, // 压缩空格
       },
-      favicon: path.resolve(__dirname, '../static/icoLogo.png')
+      favicon: path.resolve(__dirname, '../static/favicon.png')
     })
   ]
 }

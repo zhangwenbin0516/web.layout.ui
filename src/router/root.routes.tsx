@@ -8,14 +8,14 @@
  * @children array<object<any>> 子路由结合 
  */
 import { lazy } from "react";
-import routes from './local.router';
+// import routes from './local.router';
 const config = [
   {
     path: '/',
     name: '首页',
     value: 'page',
     component: lazy(() => import(/* webpackChunkName: 'page' */ '@/pages')),
-    children: routes
+    // children: routes
   },
   
 ]
