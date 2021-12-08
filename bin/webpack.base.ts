@@ -35,12 +35,12 @@ const config: webpack.Configuration = {
       {
         enforce: 'pre',
         test: /\.js$/,
-        loader: 'source-map-loader',
+        loader: 'source-map-loader'
       },
       {
         test: /\.jsx?$/,
         include: path.resolve(__dirname, '../src'),
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: path.resolve(__dirname, '../node_modules')
       },
       {

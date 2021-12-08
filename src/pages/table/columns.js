@@ -1,21 +1,21 @@
 export default [
   {
-    key: 'id',
-    title: 'ID'
+    key: "id",
+    title: "ID"
   },
   {
-    key: 'title',
-    title: '标题'
+    key: "title",
+    title: "标题"
   },
   {
-    key: 'address',
-    title: '地址'
+    key: "address",
+    title: "地址"
   },
   {
-    key: 'date',
-    title: '日期'
+    key: "date",
+    title: "日期"
   },
   {
-    title: '操作'
+    title: "操作"
   }
-]
+];

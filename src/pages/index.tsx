@@ -3,24 +3,27 @@
  * @filename index.js
  * @date 2021-12-07
  */
-import React, { useEffect } from 'react';
-import { Layout } from '../../es';
-// import HeaderComponent from '@/components/header/top';
-// import MenuComponent from '@/components/menus/asider';
-// import RouterComponent from '@/router';
-// import menus from './menu.config';
-import style from '@/styles/page.style.scss';
+import React, {useEffect} from "react";
+import {Layout} from "../../es";
+
+/*
+ * import HeaderComponent from '@/components/header/top';
+ * import MenuComponent from '@/components/menus/asider';
+ * import RouterComponent from '@/router';
+ * import menus from './menu.config';
+ */
+import style from "@/styles/page.style.scss";
 interface Props {
   routes: any
 }
-console.log(Layout, style)
+console.log(Layout, style);
 const RootComponent = (props: Props) => {
   useEffect(() => {
-  }, [props])
+  }, [props]);
   return <div>
-    {/* <Layout 
+    {/* <Layout
       header="left"
-      headerRender={<HeaderComponent />} 
+      headerRender={<HeaderComponent />}
       className={ style.page_main }
       logo={{
         title: 'YHUI',
@@ -31,7 +34,7 @@ const RootComponent = (props: Props) => {
       style={{}}>
       <RouterComponent routes={props.routes} />
     </Layout> */}
-  </div>
-}
+  </div>;
+};
 
 export default RootComponent;

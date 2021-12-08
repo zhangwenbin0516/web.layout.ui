@@ -5,7 +5,7 @@
 import React from "react";
 
 const HeaderMenu = (props) => {
-  return <div>header-menu</div>
-}
+  return <div>header-menu</div>;
+};
 
 export default HeaderMenu;
