@@ -20,6 +20,7 @@ let mode: string|null = argv.find(key => key === 'client') ? 'development' : 'pr
 let env: any = argv.find(key => /\-\-/.test(key)) || 'dev';
 env = env.replace('--', '');
 process.env.$env = env;
+
 // 配置css-modules
 const cssOption = {
   url: true,
@@ -33,6 +34,7 @@ const cssOption = {
 
 // 当前环境设置参数
 const setting = WebpackConfig[env];
+
 // 合并webpack配置
 const options: webpack.Configuration = merge(config, {
   mode,

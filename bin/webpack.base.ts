@@ -26,21 +26,30 @@ const config: webpack.Configuration = {
       {
         test: /\.(ts|tsx)$/,
         include: path.resolve(__dirname, '../src'),
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true
-        },
+        use: [
+          { 
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            },
+          }
+        ],
         exclude: path.resolve(__dirname, '../node_modules')
       },
       {
         enforce: 'pre',
         test: /\.js$/,
-        loader: 'source-map-loader'
+        use: [
+          { loader: 'source-map-loader' }
+        ]
       },
       {
         test: /\.jsx?$/,
         include: path.resolve(__dirname, '../src'),
-        loader: "babel-loader",
+        use: [
+          { loader: "babel-loader" },
+          { loader: "eslint-loader" }
+        ],
         exclude: path.resolve(__dirname, '../node_modules')
       },
       {
@@ -75,6 +84,9 @@ const config: webpack.Configuration = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
+    new webpack.DefinePlugin({
+      ENV_CONFIG: JSON.stringify(setting)
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../static/index.html'),

@@ -14,7 +14,8 @@
     "build:test": "npm run build --test",
     "build:sit": "npm run build --sit",
     "build:pre": "npm run build --pre",
-    "build:prod": "npm run build --pro"
+    "build:prod": "npm run build --pro",
+    "lint": "eslint --ext .ts --ext .tsx src/"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "@babel/core": "^7.15.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@babel/runtime": "^7.15.4",
@@ -58,16 +60,19 @@
     "css-loader": "^6.3.0",
     "cssnano": "^5.0.12",
     "eslint": "^8.4.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.27.1",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.4",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.4.5",
     "node-sass": "^6.0.1",
     "postcss": "^8.4.4",
     "postcss-loader": "^6.2.1",
+    "prettier": "^2.5.1",
     "raw-loader": "^4.0.2",
     "sass": "^1.42.1",
     "sass-loader": "^10.2.0",
@@ -98,5 +103,10 @@
       "name": "zhangwenbin",
       "email": "942623159@qq.com"
     }
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'husky' && npm run lint"
+    }
+  }
 }
