@@ -1,0 +1,27 @@
+.web-flex {
+  display: flex;
+  display: -webkit-flex;
+}
+.web-rl {
+  justify-content: flex-start;
+}
+
+.web-rc {
+  justify-content: center;
+}
+
+.web-rr {
+  justify-content: flex-end;
+}
+
+.web-ct {
+  align-items: flex-start;
+}
+
+.web-cc {
+  align-items: center;
+}
+
+.web-cb {
+  align-items: flex-end;
+}

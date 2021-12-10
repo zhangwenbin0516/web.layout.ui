@@ -1,4 +1,4 @@
-import React, * as react from 'react';
+import * as React from 'react';
 
 export interface LayoutProps {
   style?: React.CSSProperties;

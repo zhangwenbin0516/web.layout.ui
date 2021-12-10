@@ -64,7 +64,6 @@ module.exports = {
         // js语法格式规范配置
         "accessor-pairs": 2,            // 强制 getter 和 setter 在对象中成对出现
         "array-callback-return": 2,     // 强制数组方法的回调函数中有 return 语句
-        "class-methods-use-this": 2,
         "complexity": [2, 8],
         "consistent-return": [2],
         "curly": [2, "multi", "consistent"],
@@ -107,7 +106,6 @@ module.exports = {
         "no-undef": [2],
         "no-undef-init": [2],
         "no-unused-vars": [2, {vars: "all", args: "after-used"}],
-        "no-use-before-define": 2,
         // 前端统一风格配置
         "array-bracket-newline": [2],
         "array-bracket-spacing": ["error", "never"],
@@ -159,7 +157,12 @@ module.exports = {
         "object-curly-newline": 2,
         "object-curly-spacing": 2,
         "object-property-newline": 2,
-        "one-var": [2],
+        "one-var": [2, {
+            separateRequires: true,
+            var: 'consecutive',
+            let: 'consecutive',
+            const: 'never'
+        }],
         "operator-assignment": 2,
         "operator-linebreak": 2,
         "quotes": [2, "double", {allowTemplateLiterals: true}],

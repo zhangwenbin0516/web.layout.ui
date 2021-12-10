@@ -7,11 +7,14 @@
  */
 import "@babel/polyfill";
 import ReactDOM from "react-dom";
+import {Provider} from "@/hooks";
+import RouterContext from "@/router";
+import RouteConfig from "@/router/root.routes";
 
 const App = () => {
-  return <div>
-
-  </div>;
+  return <Provider lang="zh_CN">
+    <RouterContext routes={RouteConfig} />
+  </Provider>;
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
