@@ -1,0 +1,23 @@
+@import '~@es/common/styles/public.scss';
+.markdown {
+  background-color: $white;
+  padding: 15px;
+  h1 {
+    @include height(60px);
+  }
+  h2 {
+    @include height(50px);
+  }
+  h3 {
+    @include height(40px);
+  }
+  h4 {
+    @include height(30px);
+  }
+  h5 {
+    @include height(24px);
+  }
+  h6 {
+    @include height(18px);
+  }
+}
