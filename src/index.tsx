@@ -6,16 +6,12 @@
  * @RouterComponent 路由渲染模板
  */
 import "@babel/polyfill";
-import { useEffect } from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 const App = () => {
-  useEffect(() => {
-    
-  })
   return <div>
 
   </div>;
-}
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));

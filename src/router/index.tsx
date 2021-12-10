@@ -4,7 +4,7 @@
  * @react-router-dom Switch：筛选路由插座， route:路由插座
  * @RouterContext 路由组件，实现路由渲染
  */
-import React, {Suspense, useState, useEffect} from "react";
+import {Suspense, useState, useEffect} from "react";
 import {Switch, Route, useRouteMatch, Redirect} from "react-router-dom";
 
 /**
@@ -14,7 +14,9 @@ import {Switch, Route, useRouteMatch, Redirect} from "react-router-dom";
  * @components 多模板
  */
 interface Props {
-    routes: any
+    routes: Array<{
+      [key: string]: any
+    }>
 }
 const RouterContext = (props: Props) => {
   const [routes, setRoutes]: any = useState([]),

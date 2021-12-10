@@ -3,8 +3,6 @@
  * @filename index.js
  * @date 2021-12-07
  */
-import React, {useEffect} from "react";
-import {Layout} from "../../es";
 
 /*
  * import HeaderComponent from '@/components/header/top';
@@ -12,14 +10,12 @@ import {Layout} from "../../es";
  * import RouterComponent from '@/router';
  * import menus from './menu.config';
  */
-import style from "@/styles/page.style.scss";
-interface Props {
-  routes: any
-}
-console.log(Layout, style);
-const RootComponent = (props: Props) => {
-  useEffect(() => {
-  }, [props]);
+/*
+ * interface Props {
+ *   routes: any
+ * }
+ */
+const RootComponent = () => {
   return <div>
     {/* <Layout
       header="left"

@@ -187,5 +187,11 @@ module.exports = {
         "prefer-const": 2,
         "require-yield": [2],
         "symbol-description": 2,
+        // react 格式
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/react-in-jsx-scope": 0,
+        // ts 配置
+        "@typescript-eslint/no-explicit-any": "off"
     }
 };
