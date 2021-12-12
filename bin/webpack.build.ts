@@ -7,18 +7,11 @@ import config from './webpack.base';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 // 获取环境参数
-let argvs: any = process.env.npm_config_argv;
-try {
-  argvs = JSON.parse(argvs);
-} catch(e) {
-  console.error(e);
-}
+let argvs: Array<string> = process.argv;
 
 // 解析环境参数
-let argv: Array<string> = argvs.cooked || argvs.original || [];
-let mode: string|null = argv.find(key => key === 'client') ? 'development' : 'production';
-let env: any = argv.find(key => /\-\-/.test(key)) || 'dev';
-env = env.replace('--', '');
+let env: any = argvs.find(key => key.indexOf('$env') > -1) || 'dev';
+env = env.replace('$env=', '');
 process.env.$env = env;
 // 配置css-modules
 const cssOption = {
@@ -35,7 +28,7 @@ const cssOption = {
 // const setting = WebpackConfig[env];
 
 const options: webpack.Configuration = merge(config, {
-  mode,
+  mode: 'production',
   entry: {
     app: path.resolve(__dirname, '../src/index.tsx'),
     common: ['react', 'react-dom', 'react-router-dom']
