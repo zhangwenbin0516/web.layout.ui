@@ -1,7 +1,7 @@
 import webpack from "webpack";
 import path from "path";
 import devServer from 'webpack-dev-server';
-const merge: any = require('webpack-merge');
+import merge from 'webpack-merge';
 
 import config from './webpack.base';
 import WebpackConfig from './webpack.config';

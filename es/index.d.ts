@@ -1,3 +1,5 @@
+export type {ProviderProps} from './config-provider';
+export {default as ConfigProvider} from './config-provider';
 export type {LayoutProps} from './layout';
 export {default as Layout} from './layout';
 export type {SpinProps} from './spin';

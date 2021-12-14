@@ -1,3 +1,4 @@
+export {default as ConfigProvider} from './config-provider';
 export {default as Layout} from './layout';
 export {default as Spin} from './spin';
 // export {default as Table} from './table';

@@ -27,7 +27,7 @@ const cssOption = {
 // 当前环境设置参数
 // const setting = WebpackConfig[env];
 
-const options: webpack.Configuration = merge(config, {
+const options: any = merge(config, {
   mode: 'production',
   entry: {
     app: path.resolve(__dirname, '../src/index.tsx'),

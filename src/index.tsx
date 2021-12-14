@@ -8,13 +8,15 @@
 import "@babel/polyfill";
 import ReactDOM from "react-dom";
 import {Provider} from "@/hooks";
+import {ConfigProvider} from '@es';
 import RouterContext from "@/router";
-import RouteConfig from "@/router/root.routes";
-
+// import RouteConfig from "@/router/root.routes";
 const App = () => {
-  return <Provider lang="zh_CN">
-    <RouterContext routes={RouteConfig} />
-  </Provider>;
+  return <ConfigProvider locale="zh_CN">
+    <Provider>
+      <RouterContext />
+    </Provider>
+  </ConfigProvider>;
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
