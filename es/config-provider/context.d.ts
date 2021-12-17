@@ -1,13 +1,15 @@
-import * as React from 'react';
+/**
+ * @filename config-provider/context.d.ts
+ * @author zhangwenbin
+ * @date 2021-12-17
+ */
+import {Locale} from "../locale-provider";
 
-import { RenderEmptyHandler } from './renderEmpty';
-
-export interface ConsumerProps {
-  // 全局组件大小，默认：middle
-  size?: string;
-  // 文字和图片顺序，默认：ltr
-  direction?: string;
-  // 国际化语言设置
-  // locale?: Locale
+export declare type DirectionType = "ltr" | "rtl" | undefined;
+export interface ContextProps {
+  direction?: DirectionType;
+  locale?: Locale;
+  rootPrefixCls?: string;
 }
 
+export declare const ConfigContext: React.Context<ContextProps>;

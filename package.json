@@ -4,8 +4,8 @@
   "description": "本项目基于前端自定义UI布局开发",
   "scripts": {
     "client": "ts-node-dev ./bin/webpack.client.ts",
-    "build": "webpack --config ./bin/webpack.build.ts",
-    "dev": "npm run client cross-env cross-env $env=dev",
+    "build": "ts-node ./bin/webpack.build.ts",
+    "dev": "npm run client cross-env $env=dev",
     "test": "npm run client cross-env $env=test",
     "sit": "npm run client cross-env $env=sit",
     "pre": "npm run client cross-env $env=pre",
@@ -15,7 +15,7 @@
     "build:sit": "npm run build cross-env $env=sit",
     "build:pre": "npm run build cross-env $env=pre",
     "build:prod": "npm run build cross-env $env=pro",
-    "lint": "eslint --fix --ext .ts,.tsx src/",
+    "lint": "eslint --fix --ext .ts,.tsx src",
     "prepare": "husky install"
   },
   "repository": {
@@ -29,7 +29,7 @@
     "javascript",
     "yh-ui"
   ],
-  "author": "zhangwenbin <942623159@qq.com>",
+  "author": "zhangwenbin ",
   "license": "OBSD",
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -110,7 +110,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{ts,tsx,js}": [
       "npm run lint",
       "git add ."
     ]

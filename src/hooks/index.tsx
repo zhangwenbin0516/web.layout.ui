@@ -1,6 +1,6 @@
 /**
  * @hook-app
- * @author zhangwenbin<942623159@qq.com>
+ * @author zhangwenbin
  * @AppContext 入口state组件
  * @AppComponent 入口hook模板
  */

@@ -1,5 +1,5 @@
 /**
- * @author zhangwenbin<942623159@qq.com>
+ * @author zhangwenbin
  * @date 2021-11-25
  * @filename handsontable/algorithms/loadData
  * @name handsontable算法同步数据组件 

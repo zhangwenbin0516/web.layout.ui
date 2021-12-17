@@ -20,7 +20,7 @@ var LocaleProvider = /*#__PURE__*/function($Component) {
         var $props = this.props,
             locale = $props.locale,
             children = $props.children;
-        return /*#__PURE__*/React.createElement(LocaleProvider.)
+        return /*#__PURE__*/React.createElement(LocaleProvider)
       }
     }
   ])

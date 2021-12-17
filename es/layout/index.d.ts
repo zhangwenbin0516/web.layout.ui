@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface LayoutProps {
   style?: React.CSSProperties;
@@ -10,7 +10,7 @@ export interface LayoutProps {
 export interface LayoutState {}
 
 declare class Layout extends React.Component<LayoutProps, LayoutState> {
-  render: () => JSX.Element
+  render: () => JSX.Element;
 }
 
 export default Layout;

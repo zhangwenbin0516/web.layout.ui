@@ -1,6 +1,6 @@
 /**
  * @reducer
- * @author zhangwenbin<942623159@qq.com>
+ * @author zhangwenbin
  * date 2021-12-10
  */
 

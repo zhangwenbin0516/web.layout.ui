@@ -13,6 +13,7 @@ let argvs: Array<string> = process.argv;
 let env: any = argvs.find(key => key.indexOf('$env') > -1) || 'dev';
 env = env.replace('$env=', '');
 process.env.$env = env;
+
 // 配置css-modules
 const cssOption = {
   url: true,
@@ -128,8 +129,11 @@ const options: any = merge(config, {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:9].css',
       chunkFilename: 'css/[id].[chunkhash:9].css'
+    }),
+    new webpack.ProgressPlugin(function(percentage, message, ...args) {
+      console.log(percentage, message, ...args)
     })
   ]
-})
-
-webpack(options);
+});
+const complier:any = webpack(options);
+complier.run();
