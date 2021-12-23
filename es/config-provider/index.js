@@ -8,8 +8,7 @@ import { ConfigContext } from './context';
 import LocaleProvider from '../locale-provider';
 
 let ConfigProvider = function ConfigProvider(props) {
-  console.log(props)
-  return /*#__PURE__*/React.createElement(LocaleProvider)
+  return /*#__PURE__*/React.createElement(LocaleProvider, props);
 };
 
 ConfigProvider.ConfigContext = ConfigContext;
